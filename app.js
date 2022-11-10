@@ -6,18 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var cors = require('cors')
 var indexRouter = require('./routes/index');
-var usuariosRouter = require('./routes/usuarios-routes');
-var centrosRouter = require('./routes/centros-routes');
-var doctoresRouter = require('./routes/doctores-routes');
-var pacientesRouter = require('./routes/pacientes-routes');
-var citasRouter = require('./routes/citas-routes');
-var labRouter = require('./routes/lab-routes');
-var fichaRouter = require('./routes/fichas-routes');
-var dataRouter = require('./routes/dataformularios-routes');
-var adminRouter = require('./routes/admin-routes');
-
 var app = express();
-
 
 app.use(session({
   secret: 'app nodejs'
@@ -46,6 +35,7 @@ app.use(cors(op));
 
 
 app.use('index', cors(op), indexRouter);
+
 
 app.use(function(req, res, next) {
   // next(createError(404));
