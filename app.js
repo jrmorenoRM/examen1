@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var cors = require('cors')
 var indexRouter = require('./routes/index');
+var eventosRouter = require('./routes/eventos-routes');
 var app = express();
 
 app.use(session({
@@ -35,7 +36,7 @@ app.use(cors(op));
 
 
 app.use('index', cors(op), indexRouter);
-
+app.use('api/eventos', cors(op), eventosRouter);
 
 app.use(function(req, res, next) {
   // next(createError(404));
